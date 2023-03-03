@@ -10,6 +10,7 @@ import { AppDataSource } from "./data-source";
 
 // Routes (Import custom routes here)
 // eg: Import serviceRoute from "./<service>/<RouteFile>"
+import userRoutes from './user/user.routes';
 
 // Middleware
 import errorHandler from "./utils/error_handling/errorHandler.middleware"
@@ -32,6 +33,7 @@ app.use(errorHandler);
 
 // Initialise custom routes here
 // eg: serviceRoutes(app)
+userRoutes(app)
 
 AppDataSource.initialize().then(async () => {
     logger.log("info","Database connected")
