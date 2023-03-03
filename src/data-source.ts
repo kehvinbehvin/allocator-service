@@ -41,6 +41,9 @@ function getDataSource() {
             entities: [],
             migrations: [],
             subscribers: [],
+            ssl: {
+                ca: process.env.SSL_CERT
+            },
         })
     }
 }
