@@ -28,6 +28,12 @@ Each module consists of (See user module for example)
 - Manager
 - Logger
 
+# Docker
+- Make sure you have your own docker repositories to store your images
+- This is important as third party hosting services can retrieve your latest images
+
 # Deployment
 Using fly.io as a hosting service and Buddy.works as a pipline. 
+- Setup your own applications in fly.io dashboard
+- Setup your own pipeline to deploy latest docker image to fly.io
 - Push to master to deploy!
