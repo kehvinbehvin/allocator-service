@@ -27,3 +27,7 @@ Each module consists of (See user module for example)
 - Routes
 - Manager
 - Logger
+
+# Deployment
+Using fly.io as a hosting service and Buddy.works as a pipline. 
+- Push to master to deploy!
