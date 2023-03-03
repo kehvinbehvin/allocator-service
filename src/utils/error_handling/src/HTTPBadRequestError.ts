@@ -1,12 +1,12 @@
 import httpStatusCodes from '../configs/httpStatusCodes';
 import { BaseError } from './BaseError';
 
-export class HTTPAccessDeniedError extends BaseError {
+export class HTTPBadRequestError extends BaseError {
     constructor (
-        message: string = 'Access denied',
-        statusCode: number = httpStatusCodes.ACCESS_DENIED,
+        message: string = 'Bad Request',
+        statusCode: number = httpStatusCodes.BAD_REQUEST,
         isOperational: boolean = true
     ) {
-        super("Access denied", statusCode, isOperational, message)
+        super("Bad Request", statusCode, isOperational, message)
     }
 }
