@@ -3,6 +3,7 @@ import { DataSource } from "typeorm"
 
 // Import custom schemas here
 // eg: import { User } from "./<service>/<schemaFile>"
+import { User } from "./user/entity/User"
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -38,7 +39,7 @@ function getDataSource() {
             url: DATABASE_URL,
             synchronize: true,
             logging: true,
-            entities: [],
+            entities: [User],
             migrations: [],
             subscribers: [],
             ssl: {
