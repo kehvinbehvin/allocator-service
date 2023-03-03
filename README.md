@@ -10,15 +10,15 @@
 
 # Building docker image
 - docker login
-- docker build . -t <docker-repo>:<commit>
-- docker tag <docker-repo>:<commit> <docker-repo>:latest
+- docker build . -t (docker-repo):(commit)
+- docker tag (docker-repo):(commit) (docker-repo):latest
 
 # Test docker image
-- docker run -p 8080:8080 -d --env-file ./.env <docker-repo>:<commit>
+- docker run -p 8080:8080 -d --env-file ./.env (docker-repo):(commit)
 
 # Push image to registry
-- docker push <docker-repo>:<commit>
-- docker push <docker-repo>:latest
+- docker push (docker-repo):(commit)
+- docker push (docker-repo):latest
 
 # Modules descriptions
 Each module consists of (See user module for example)
