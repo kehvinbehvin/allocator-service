@@ -2,9 +2,7 @@ import userLogger from "./user.logger"
 import { Request, Response, NextFunction } from 'express';
 import { getUserById, createUser, removeUser, updateUser, getUserByEmail, login } from "./user.manager"
 import { completeKeys, isWhiteListed } from "../utils/utils"
-import { HTTPBadRequestError } from "../utils/error_handling/src/HTTPBadRequestError"
-import { HTTPAccessDeniedError } from "../utils/error_handling/src/HTTPAccessDeniedError"
-import { HTTPNotFoundError } from "../utils/error_handling/src/HTTPNotFoundError"
+import { HTTPBadRequestError, HTTPAccessDeniedError, HTTPNotFoundError } from "../utils/error_handling/src/HTTPErrors"
 import httpStatusCodes from "../utils/error_handling/configs/httpStatusCodes"
 import pick from "lodash.pick"
 

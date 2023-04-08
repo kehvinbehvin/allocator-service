@@ -1,9 +1,7 @@
 import { AppDataSource } from "../data-source"
 import { User } from "../user/entity/User"
-import { HTTPNotFoundError } from "../utils/error_handling/src/HTTPNotFoundError"
-import { HTTPInternalSeverError } from "../utils/error_handling/src/HTTPInternalServerError"
 import userLogger from "./user.logger"
-import { HTTPBadRequestError } from "../utils/error_handling/src/HTTPBadRequestError"
+import { HTTPBadRequestError, HTTPInternalSeverError, HTTPNotFoundError } from "../utils/error_handling/src/HTTPErrors"
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');

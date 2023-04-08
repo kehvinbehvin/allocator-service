@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToOne, JoinColumn } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany,  } from "typeorm"
+import { Profile } from "../../profile/entity/Profile"
 
 @Entity({name: "user"})
 export class User extends BaseEntity {
@@ -21,4 +22,6 @@ export class User extends BaseEntity {
     @Column("boolean", { nullable: true, default: false })
     deleted: boolean
 
+    @OneToMany(() => Profile, (profile) => profile.user)
+    profiles: Profile[]
 }

@@ -1,6 +1,6 @@
 import {Request, Response, NextFunction} from "express";
 import {BaseError} from "./src/BaseError";
-import {HTTPInternalSeverError} from "./src/HTTPInternalServerError";
+import { HTTPInternalSeverError } from "../error_handling/src/HTTPErrors"
 
 function errorHandler (error: BaseError, req: Request, res: Response, next: NextFunction) {
     if (!error.customError) {

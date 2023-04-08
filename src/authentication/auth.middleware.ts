@@ -1,8 +1,7 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 import {Request, Response, NextFunction} from "express";
-import { HTTPBadRequestError } from "../utils/error_handling/src/HTTPBadRequestError";
-import { HTTPAccessDeniedError, } from "../utils/error_handling/src/HTTPAccessDeniedError";
+import { HTTPBadRequestError, HTTPAccessDeniedError } from "../utils/error_handling/src/HTTPErrors"
 
 async function verify(req: Request, res: Response, next: NextFunction) {
     const token = req.headers.authorization;
