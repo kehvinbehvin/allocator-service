@@ -37,3 +37,7 @@ Using fly.io as a hosting service and Buddy.works as a pipline.
 - Setup your own applications in fly.io dashboard
 - Setup your own pipeline to deploy latest docker image to fly.io
 - Push to master to deploy!
+
+# Development
+- Setup ngrok service for http port forwarding
+- Setup postman to setWebhooks
