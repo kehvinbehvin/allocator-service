@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, OneToMany } from "typeorm"
 import { User } from "../../user/entity/User"
+import { Interaction } from "../../interaction/entity/Interaction"
 
 @Entity({name: "profile"})
 export class Profile extends BaseEntity {
@@ -21,4 +22,7 @@ export class Profile extends BaseEntity {
 
     @ManyToOne(() => User, (user) => user.profiles)
     user: User
+
+    @OneToMany(() => Interaction, (interaction) => interaction.profile)
+    interactions: Interaction[]
 }
