@@ -12,6 +12,7 @@ import { AppDataSource } from "./data-source";
 // eg: Import serviceRoute from "./<service>/<RouteFile>"
 import userRoutes from './user/user.routes';
 import telebotRoutes from "./telebot/telebot.routes"
+import profileRoutes from "./profile/profile.routes"
 
 // Middleware
 import errorHandler from "./utils/error_handling/errorHandler.middleware"
@@ -36,6 +37,7 @@ app.use(errorHandler);
 // eg: serviceRoutes(app)
 userRoutes(app)
 telebotRoutes(app)
+profileRoutes(app)
 
 AppDataSource.initialize().then(async () => {
     logger.log("info","Database connected")
