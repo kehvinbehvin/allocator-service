@@ -13,6 +13,7 @@ import { AppDataSource } from "./data-source";
 import userRoutes from './user/user.routes';
 import telebotRoutes from "./telebot/telebot.routes"
 import profileRoutes from "./profile/profile.routes"
+import interactionRoutes from './interaction/interaction.routes';
 
 // Middleware
 import errorHandler from "./utils/error_handling/errorHandler.middleware"
@@ -28,16 +29,20 @@ var corsOptions = {
     optionsSuccessStatus: 200 
   }
 
+// Middleware before module routing
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(routeLogger);
-app.use(errorHandler);
 
 // Initialise custom routes here
 // eg: serviceRoutes(app)
 userRoutes(app)
 telebotRoutes(app)
 profileRoutes(app)
+interactionRoutes(app)
+
+// Middleware after module routing
+app.use(errorHandler);
 
 AppDataSource.initialize().then(async () => {
     logger.log("info","Database connected")

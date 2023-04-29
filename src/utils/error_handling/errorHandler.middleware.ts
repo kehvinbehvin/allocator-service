@@ -11,7 +11,7 @@ function errorHandler (error: BaseError, req: Request, res: Response, next: Next
         "Error message": `${error.message}`,
     }
 
-    return res.json(response).status(error.statusCode);
+    return res.status(error.statusCode).json(response);
 }
 
 export default errorHandler;

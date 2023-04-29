@@ -8,7 +8,7 @@ import { getUserById } from "../user/user.manager";
 
 export async function getProfile(req: Request, res: Response, next: NextFunction) {
     try {
-        const profileId = req.params.id;
+        const profileId = req.params.profileId;
         const profile = await getProfileById(Number(profileId));
         if (!profile) {
             profileLogger.log("info",`Error retrieving profile id: ${profileId}`);
@@ -31,7 +31,7 @@ export async function getProfile(req: Request, res: Response, next: NextFunction
 
 export async function getProfiles(req: Request, res: Response, next: NextFunction) {
     try {
-        const currentUser = res.locals.currentUserId;
+        const currentUser = await getUserById(res.locals.currentUserId);
         const profiles = await getUserProfiles(currentUser);
 
         return res.json(profiles).status(httpStatusCodes.OK)
@@ -78,7 +78,7 @@ export async function addProfile(req: Request, res: Response, next: NextFunction
 
 export async function removeProfile(req: Request, res: Response, next: NextFunction) {
     try {
-        const profileId = req.params.id;
+        const profileId = req.params.profileId;
         const profile = await getProfileById(Number(profileId));
         if (!profile) {
             profileLogger.log("info",`Error retrieving profile id: ${profileId}`);
@@ -122,7 +122,7 @@ export async function patchProfile(req: Request, res: Response, next: NextFuncti
             })
         }
     
-        const profileId = req.params.id;
+        const profileId = req.params.profileId;
         const profile = await getProfileById(Number(profileId));
         const updatedProfile = await updateProfile(profile, profileData);
 

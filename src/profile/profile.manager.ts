@@ -29,6 +29,7 @@ export async function getProfileById(id: number): Promise<Profile> {
 
 export async function getUserProfiles(user: User): Promise<Profile[]> {
     try {
+        console.log("USER ID", user)
         const profiles = await profileRepository.find({
             where: {
                 user: {
@@ -117,4 +118,18 @@ export async function setProfileOwner(profile: Profile, user: User): Promise<Pro
         profileLogger.log("error",`${error}`);
         throw new HTTPBadRequestError("Error when setting profile owner");
     }
+}
+
+export async function isProfileOwner(profileId: number, userId: number) {
+    const profile = await profileRepository.findOne({
+        where: {
+            user: {
+                id: userId
+            },
+            id: profileId
+        }
+    })
+
+    return profile !== null
+
 }

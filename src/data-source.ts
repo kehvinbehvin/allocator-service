@@ -6,6 +6,7 @@ import fs from "fs"
 // eg: import { User } from "./<service>/<schemaFile>"
 import { User } from "./user/entity/User"
 import { Profile } from "./profile/entity/Profile"
+import { Interaction } from "./interaction/entity/Interaction"
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -23,7 +24,7 @@ function getDataSource() {
             url: LOCAL_DATABASE_URL,
             synchronize: true,
             logging: true,
-            entities: [User, Profile],
+            entities: [User, Profile, Interaction],
             subscribers: [],
             migrations: [],
             ssl: {
@@ -36,7 +37,7 @@ function getDataSource() {
             url: DATABASE_URL,
             synchronize: true,
             logging: true,
-            entities: [User, Profile],
+            entities: [User, Profile, Interaction],
             migrations: [],
             subscribers: [],
             ssl: {
